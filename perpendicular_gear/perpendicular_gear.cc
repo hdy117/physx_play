@@ -60,6 +60,11 @@ int main() {
   sceneDesc.filterShader = physx::PxDefaultSimulationFilterShader;
   physx::PxScene* scene = physics->createScene(sceneDesc);
 
+  scene->setVisualizationParameter(physx::PxVisualizationParameter::eSCALE,
+                                   1.0f);
+  scene->setVisualizationParameter(physx::PxVisualizationParameter::eACTOR_AXES,
+                                   2.0f);
+
   physx::PxPvdSceneClient* pvdClient = scene->getScenePvdClient();
   if (pvdClient) {
     pvdClient->setScenePvdFlag(physx::PxPvdSceneFlag::eTRANSMIT_CONSTRAINTS,
