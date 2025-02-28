@@ -5,6 +5,6 @@ set(bin_name perpendicular_gear)
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} src_files)
 
 add_executable(${bin_name} ${src_files})
-target_link_libraries(${bin_name} ${physx_static_libs} ${physx_dyn_libs} ${lib_sys})
+target_link_libraries(${bin_name} ${physx_dyn_libs} ${lib_sys} ${physx_static_libs})
 
 install(TARGETS ${bin_name} RUNTIME DESTINATION ${bin_dir}) 

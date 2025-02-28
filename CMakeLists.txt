@@ -8,10 +8,14 @@ set(bin_dir ${root_dir}/bin)
 set(physx_root /opt/PhysX)
 
 include_directories(${physx_root}/include)
-link_directories(${physx_root}/linux.x86_64/debug)
+link_directories(${physx_root}/bin/linux.x86_64/debug)
 
-file(GLOB physx_static_libs "${physx_root})/*.a")
-file(GLOB physx_dyn_libs "${physx_root})/*.so")
+file(GLOB physx_static_libs "${physx_root}/bin/linux.x86_64/debug/*.a")
+file(GLOB physx_dyn_libs "${physx_root}/bin/linux.x86_64/debug/*.so")
 set(lib_sys pthread)
 
+message(STATUS ${physx_static_libs})
+
 add_subdirectory(${root_dir}/perpendicular_gear)
+
+file(COPY ${physx_dyn_libs} DESTINATION ${bin_dir})
